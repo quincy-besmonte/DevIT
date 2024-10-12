@@ -1,0 +1,347 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap");
+
+/*=============== VARIABLES CSS ===============*/
+:root {
+  /*========== Colors ==========*/
+  /*Color mode HSL(hue, saturation, lightness)*/
+  --first-color: hsl(82, 60%, 28%);
+  --title-color: hsl(0, 0%, 5%);
+  --text-color: hsl(0, 0%, 25%);
+  --body-color: hsl(0, 0%, 95%);
+  --container-color: hsl(0, 0%, 100%);
+
+  /*========== Font and typography ==========*/
+  /*.5rem = 8px | 1rem = 16px ...*/
+  --body-font: "Poppins", sans-serif;
+  --h2-font-size: 1.0rem;
+  --small-font-size: .813rem;
+}
+
+/*========== Responsive typography ==========*/
+@media screen and (min-width: 1120px) {
+  :root {
+    --p-font-size: 15px;
+    --small-font-size: 5px;
+  }
+}
+
+/*=============== BASE ===============*/
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-family: var(--body-font);
+  background-color: var(--body-color);
+  color: var(--text-color);
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+p {
+   color: white;
+}
+/*=============== CARD ===============*/
+.container {
+  display: grid;
+  place-items: center;
+  margin-inline: 1.5rem;
+  padding-block: 5rem;
+}
+
+.card__container {
+  display: grid;
+  row-gap: 1.5rem;
+}
+
+.card__article {
+  position: relative;
+  overflow: hidden;
+}
+
+.card__img {
+  width: 328px;
+  border-radius: 1.5rem;
+}
+
+.card__data {
+  width: 280px;
+  background-color: black;
+  padding: 1.5rem 2rem;
+  box-shadow: 0 6px 4px hsla(0, 0%, 0%, .10);
+  border-radius: 1rem;
+  position: absolute;
+  bottom: -9rem;
+  left: 0;
+  right: 0;
+  margin-inline: auto;
+  opacity: 0;
+  transition: opacity 1s 1s;
+}
+
+.card__description {
+  display: block;
+  font-size: var(--small-font-size);
+  margin-bottom: .25rem;
+}
+
+.card__title {
+  font-size: var(--h2-font-size);
+  font-weight: 500;
+  color: orangered;
+  margin-bottom: .75rem;
+}
+
+
+/* Naming animations in hover */
+.card__article:hover .card__data {
+  animation: show-data 1s forwards;
+  opacity: 1;
+  transition: opacity .3s;
+}
+
+.card__article:hover {
+  animation: remove-overflow 1s forwards;
+}
+
+.card__article:not(:hover) {
+  animation: show-overflow 1s forwards;
+}
+
+.card__article:not(:hover) .card__data {
+  animation: remove-data 1s forwards;
+}
+
+/* Card animation */
+@keyframes show-data {
+  50% {
+    transform: translateY(-10rem);
+  }
+  100% {
+    transform: translateY(-7rem);
+  }
+}
+
+@keyframes remove-overflow {
+  to {
+    overflow: initial;
+  }
+}
+
+@keyframes remove-data {
+  0% {
+    transform: translateY(-7rem);
+  }
+  50% {
+    transform: translateY(-10rem);
+  }
+  100% {
+    transform: translateY(.5rem);
+  }
+}
+
+@keyframes show-overflow {
+  0% {
+    overflow: initial;
+    pointer-events: none;
+  }
+  50% {
+    overflow: hidden;
+  }
+}
+
+/*=============== BREAKPOINTS ===============*/
+/* For small devices */
+@media screen and (max-width: 340px) {
+  .container {
+    margin-inline: 1rem;
+  }
+
+  .card__data {
+    width: 250px;
+    padding: 1rem;
+  }
+}
+
+/* For medium devices */
+@media screen and (min-width: 768px) {
+  .card__container {
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 1.5rem;
+  }
+}
+
+/* For large devices */
+@media screen and (min-width: 1120px) {
+  .container {
+    height: 100vh;
+  }
+
+  .card__container {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  .card__img {
+    width: 348px;
+  }
+  .card__data {
+    width: 316px;
+    padding-inline: 2.5rem;
+  }
+
+
+body {
+      background-image: url('background.png');
+         }
+        .section__container {
+        min-height: 85vh;
+        margin: auto;
+        padding: 5rem;
+        display: grid;
+        gap: 3rem;
+        text-align: justify-all;
+        text-transform: !important;
+        row-gap: 15px;
+        }
+
+        .button {
+        display: inline-block;
+        padding: 15px 25px;
+        font-size: 24px;
+        cursor: pointer;
+        text-align: center;
+        text-decoration: none;
+        outline: none;
+        color: #fff;
+        background-color: black;
+        border: none;
+        border-radius: 15px;
+        box-shadow: 0 12px 16px 0 orangered,0 17px 50px 0 orangered;
+      }
+
+      .button:hover {background-color: #dc7a04}
+
+      .button:active {
+        background-color: #dc7a04;
+        box-shadow: 0 5px #666;
+        transform: translateY(4px);
+      }
+      .button1 {
+        display: inline-block;
+        padding: 15px 25px;
+        font-size: 24px;
+        cursor: pointer;
+        text-align: center;
+        text-decoration: none;
+        outline: none;
+        color: #fff;
+        background-color: black;
+        border: none;
+        border-radius: 15px;
+        box-shadow: 0 12px 16px 0 orangered,0 17px 50px 0 orangered;
+      }
+
+      .button1:hover {background-color: #dc7a04}
+
+      .button1:active {
+        background-color: #dc7a04;
+        box-shadow: 0 5px #666;
+        transform: translateY(4px);
+      }
+
+      .button2 {
+        display: inline-block;
+        padding: 15px 25px;
+        font-size: 24px;
+        cursor: pointer;
+        text-align: center;
+        text-decoration: none;
+        outline: none;
+        color: #fff;
+        background-color: black;
+        border: none;
+        border-radius: 15px;
+       box-shadow: 0 12px 16px 0 orangered,0 17px 50px 0 orangered;
+      }
+
+      .button2:hover {background-color: #dc7a04}
+
+      .button2:active {
+        background-color: #dc7a04;
+        box-shadow: 0 5px #666;
+        transform: translateY(4px);
+      }
+      h3{
+        color: white;
+        text-shadow: 2px 2px 4px yellowgreen;
+      }
+      span{
+          text-shadow: 2px 4px 4px gray;
+        }
+        *{
+  margin: 0;
+  padding: 0;  
+
+}
+html{
+  font-family: Poppins;
+  color: #f0f0f0;
+}
+div card{
+
+  background: #0b0d15;
+  color: #a2a5b3;
+  align-content: center;
+}
+h1{
+  color: white;
+}
+.card{
+  margin: 0 auto;
+  padding: 2em;
+  width: 1000px; 
+  height: 150px;
+  background: #1c1f2b;
+  text-align: center;
+  border-radius: 5px;
+  position: relative;
+}
+
+@property --angle{
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+.card::after, .card::before{
+  content: '';
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background-image: conic-gradient(from var(--angle), #ffa902, #ff8802, #fb5602, #fb3d02, #fd5042);
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
+  z-index: -1;
+  padding: 3px;
+  border-radius: 10px;
+  animation: 3s spin linear infinite;
+}
+.card::before{
+  filter: blur(1.5rem);
+  opacity: 0.5;
+}
+@keyframes spin{
+  from{
+    --angle: 0deg;
+  }
+  to{
+    --angle: 360deg;
+  }
+}
+      }
